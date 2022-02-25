@@ -1,9 +1,11 @@
 import { Question } from './question.model';
 
 export class Quiz {
-    titre: string;
-    assets_folder: string;
-    audio_titre: string;
-    audio_solution: string;
-    questions: Question[];
+  constructor(
+    public titre: string,
+    public assets_folder: string,
+    public audio_titre: string | undefined,
+    public audio_solution: string | undefined,
+    public questions: Question[] = [],
+  ) { }
 }

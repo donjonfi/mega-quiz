@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { HttpClient } from '@angular/common/http';
 import { Quiz } from '../models/quiz.model';
 
@@ -9,7 +10,7 @@ import { Quiz } from '../models/quiz.model';
 })
 export class QuizComponent implements OnInit {
 
-  quizList: Quiz[] = null;
+  quizList: Quiz[] | undefined;
   selectedQuiz = -1;
 
   constructor(
@@ -20,8 +21,8 @@ export class QuizComponent implements OnInit {
 
     // load quiz
 
-    this.httpClient.get<Quiz[]>('./assets/quiz.json').subscribe(
-      // this.httpClient.get<Quiz[]>('./assets/quiz32.json').subscribe(
+    // this.httpClient.get<Quiz[]>('./assets/quiz.json').subscribe(
+      this.httpClient.get<Quiz[]>('./assets/quiz32.json').subscribe(
       quizList => {
         this.quizList = quizList;
       });
@@ -29,6 +30,10 @@ export class QuizComponent implements OnInit {
 
   onSelectQuiz(index: number) {
     this.selectedQuiz = index;
+
+    console.log("this.quizList=", this.quizList);
+    console.log("this.selectedQuiz=", this.selectedQuiz);
+    
   }
 
 

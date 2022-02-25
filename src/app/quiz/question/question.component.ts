@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
+
 import { Question } from '../../models/question.model';
 
 @Component({
@@ -8,19 +9,19 @@ import { Question } from '../../models/question.model';
 })
 export class QuestionComponent implements OnInit {
 
-  @Input() question: Question = null;
-  @Input() assets_folder: string = null;
+  @Input() question: Question | undefined;
+  @Input() assets_folder: string | undefined;
   @Input() questionNumber: Number = 0;
 
   alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
- get isOptNoLetter() {
+  get isOptNoLetter() {
     return (this.question && this.question.options && this.question.options.includes("noletter"));
   }
 
   get isOpt2col() {
     console.log("2 col : ", this.question && this.question.options && this.question.options.includes("2col"));
-    
+
     return (this.question && this.question.options && this.question.options.includes("2col"));
   }
 

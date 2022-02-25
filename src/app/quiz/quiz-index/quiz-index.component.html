@@ -1,5 +1,7 @@
 <div class="mt-5">
+  <div class="d-grid gap-2">
     <ng-container *ngFor="let quiz of quizList; index as i">
-        <button (click)="onSelectQuiz(i)" role="button" class="btn btn-warning  btn-lg btn-block">{{quiz.titre}}</button>
+      <button (click)="onSelectQuiz(i)" type="button" class="btn btn-warning btn-lg">{{quiz.titre}}</button>
     </ng-container>
+  </div>
 </div>

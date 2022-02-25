@@ -1,20 +1,23 @@
-<div class="row">
+
+  <div class="row">
     <div class="col">
-       <button *ngIf="curQuestion == 0"  (click)="onExitGame()" class="btn btn-light">Index</button>
-       <button *ngIf="curQuestion > 0" (click)="previousQuestion()" class="btn btn-light">Précédent</button>
+      <button *ngIf="curQuestion == 0" (click)="onExitGame()" class="btn btn-light">Index</button>
+      <button *ngIf="curQuestion > 0" (click)="previousQuestion()" class="btn btn-light">Précédent</button>
     </div>
     <div class="col-auto">
-       <div class="bar text-center ml-n2 mt-2">
-          {{quiz.titre}}<br>
-       </div>
+      <div class="bar text-center ml-n2 mt-2">
+        {{quiz!.titre}}<br>
+      </div>
     </div>
     <div class="col">
-       <button *ngIf="curQuestion < (nbQuestion -1)" (click)="nextQuestion()" class="btn btn-light pull-right">Suivant</button>
-       <button *ngIf="curQuestion == (nbQuestion -1)" (click)="nextQuestion()" class="btn btn-light pull-right">Solutions</button>
-       <button *ngIf="curQuestion == nbQuestion" (click)="onExitGame()" class="btn btn-light pull-right">Index</button>
+      <button *ngIf="curQuestion < (nbQuestion -1)" (click)="nextQuestion()"
+        class="btn btn-light pull-right">Suivant</button>
+      <button *ngIf="curQuestion == (nbQuestion -1)" (click)="nextQuestion()"
+        class="btn btn-light pull-right">Solutions</button>
+      <button *ngIf="curQuestion == nbQuestion" (click)="onExitGame()" class="btn btn-light pull-right">Index</button>
     </div>
- </div>
- 
- <app-question *ngIf="curQuestion >= 0 && curQuestion < nbQuestion" [assets_folder]="quiz.assets_folder" [questionNumber]="(curQuestion + 1)" [question]="quiz.questions[curQuestion]"></app-question>
- <app-solutions *ngIf="curQuestion > 0 && curQuestion == nbQuestion" [quiz]="quiz"></app-solutions>
- 
+  </div>
+
+  <app-question *ngIf="curQuestion >= 0 && curQuestion < nbQuestion" [assets_folder]="quiz!.assets_folder"
+    [questionNumber]="(curQuestion + 1)" [question]="quiz!.questions[curQuestion]"></app-question>
+  <app-solutions *ngIf="curQuestion > 0 && curQuestion == nbQuestion" [quiz]="quiz"></app-solutions>

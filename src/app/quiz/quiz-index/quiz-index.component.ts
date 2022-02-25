@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { Quiz } from 'src/app/models/quiz.model';
 
 @Component({
@@ -8,7 +9,7 @@ import { Quiz } from 'src/app/models/quiz.model';
 })
 export class QuizIndexComponent implements OnInit {
 
-  @Input() quizList: Quiz[] = null;
+  @Input() quizList: Quiz[] | undefined;
 
   @Output() SelectionEvent = new EventEmitter<number>();
 

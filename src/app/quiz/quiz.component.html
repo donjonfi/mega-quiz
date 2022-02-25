@@ -1,14 +1,19 @@
 <div class="container-fluid px-4 py-2">
-    <div class="quiz mt-2">
-        <div class="sign">
-            <span class="sign__word">Mega Quiz</span>
-        </div>
-
-        <app-quiz-index *ngIf="selectedQuiz == -1" [quizList]="quizList" (SelectionEvent)="onSelectQuiz($event)">
-        </app-quiz-index>
-        <button *ngIf="selectedQuiz == -1" routerLink="/accueil" role="button" class="btn btn-lg btn-primary btn-block mt-2">Retour</button>
-
-        <app-game *ngIf="selectedQuiz >= 0" [quiz]="quizList[selectedQuiz]" (ExitGameEvent)="selectedQuiz = -1"></app-game>
-
+  <div class="quiz mt-2">
+    <div class="sign">
+      <span class="sign__word">Mega Quiz</span>
     </div>
+
+    <ng-template ngIf="quizList">
+      <app-quiz-index *ngIf="selectedQuiz == -1" [quizList]="quizList" (SelectionEvent)="onSelectQuiz($event)">
+      </app-quiz-index>
+      <button *ngIf="selectedQuiz == -1" routerLink="/accueil" role="button"
+        class="btn btn-lg btn-primary btn-block mt-2">Retour</button>
+
+      <app-game *ngIf="selectedQuiz >= 0" [quiz]="quizList![selectedQuiz]" (ExitGameEvent)="selectedQuiz = -1">
+      </app-game>
+
+    </ng-template>
+
+  </div>
 </div>
