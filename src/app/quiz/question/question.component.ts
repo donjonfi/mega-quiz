@@ -20,8 +20,6 @@ export class QuestionComponent implements OnInit {
   }
 
   get isOpt2col() {
-    console.log("2 col : ", this.question && this.question.options && this.question.options.includes("2col"));
-
     return (this.question && this.question.options && this.question.options.includes("2col"));
   }
 

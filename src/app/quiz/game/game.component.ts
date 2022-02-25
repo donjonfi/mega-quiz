@@ -31,7 +31,6 @@ export class GameComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (this.quiz) {
       this.nbQuestion = this.quiz.questions.length;
-     console.log("this.quiz=", this.quiz);
    }
     
   }

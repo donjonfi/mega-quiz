@@ -21,8 +21,8 @@ export class QuizComponent implements OnInit {
 
     // load quiz
 
-    // this.httpClient.get<Quiz[]>('./assets/quiz.json').subscribe(
-      this.httpClient.get<Quiz[]>('./assets/quiz32.json').subscribe(
+    this.httpClient.get<Quiz[]>('./assets/quiz.json').subscribe(
+      // this.httpClient.get<Quiz[]>('./assets/quiz32.json').subscribe(
       quizList => {
         this.quizList = quizList;
       });
@@ -30,10 +30,6 @@ export class QuizComponent implements OnInit {
 
   onSelectQuiz(index: number) {
     this.selectedQuiz = index;
-
-    console.log("this.quizList=", this.quizList);
-    console.log("this.selectedQuiz=", this.selectedQuiz);
-    
   }
 
 
